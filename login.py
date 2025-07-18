@@ -36,7 +36,7 @@ def scroll_followers_container(driver, container, max_scrolls=200, delay=2):
             last_height = new_height
 
 options = uc.ChromeOptions()
-options.binary_location = r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
+options.binary_location = r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe" #이 프로그램은 Brave 기준으로만 검증되었습니다.
 
 driver = uc.Chrome(options=options)
 
@@ -51,7 +51,7 @@ try:
     except:
         print("프로필 아이콘 로드 대기 실패, 다음 단계로 진행")
 
-    driver.get("https://www.tiktok.com/@t4x.an")
+    driver.get("https://www.tiktok.com/[HERE]") #이 곳에 목표 아이디를 입력하시면 됩니다.
     wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "span[data-e2e='followers']")))
 
     follower_tab = driver.find_element(By.CSS_SELECTOR, "span[data-e2e='followers']")
@@ -86,7 +86,7 @@ try:
 
             username = user_url.split("@")[-1]
 
-            if likes_count >= 10_000 and follower_count >= 500:
+            if likes_count >= 10_000 and follower_count >= 500: #이 곳에 필터를 설정합니다 *현재 : 10,000 좋아요 이상, 500 팔로워 이상
                 filtered_users.append({
                     "username": username,
                     "followers": follower_count,
