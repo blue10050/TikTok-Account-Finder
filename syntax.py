@@ -1,3 +1,4 @@
+"""
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -7,16 +8,13 @@ import re
 # 셀레니움 설정
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
-# 필요시 본인의 TikTok 세션 쿠키를 추가할 수도 있음.
 driver = webdriver.Chrome(options=options)
 
-# TikTok 계정 로그인 (수동 로그인 권장)
 driver.get("https://www.tiktok.com/login")
 print("로그인 완료 후 Enter를 눌러주세요...")
 input()
 
-# 대상 유저 페이지로 이동
-username = "t4x.an"
+username = "UsernameHere" #유저네임 입력
 driver.get(f"https://www.tiktok.com/@{username}/followers")
 
 # 스크롤 함수
